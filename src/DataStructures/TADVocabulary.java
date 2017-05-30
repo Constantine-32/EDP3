@@ -3,7 +3,7 @@ package DataStructures;
 /**
  * Interface per a definir el tipus abstracte de dades arbre TRIE.
  */
-public interface TADVocabulary {
+public interface TADVocabulary extends Iterable<String> {
 
   /**
    * Afegeix una paraula al arbre.

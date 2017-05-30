@@ -1,5 +1,8 @@
 package DataStructures;
 
+import java.util.Iterator;
+import java.util.StringJoiner;
+
 public class Trie implements TADVocabulary {
   private Trie[] children;
   private int numChildren;
@@ -68,5 +71,37 @@ public class Trie implements TADVocabulary {
   @Override
   public boolean isEmpty() {
     return numChildren == 0;
+  }
+
+  private class TADIterator implements Iterator<String> {
+
+    private TADIterator() {
+
+    }
+
+    @Override
+    public String next() {
+      return null;
+    }
+
+    @Override
+    public boolean hasNext() {
+      return false;
+    }
+  }
+
+  @Override
+  public Iterator<String> iterator() {
+    return new TADIterator();
+  }
+
+  @Override
+  public String toString() {
+    if (isEmpty()) return "[]";
+    StringJoiner sj = new StringJoiner(", ", "[", "]");
+    for (String word : this) {
+      sj.add(word);
+    }
+    return sj.toString();
   }
 }
