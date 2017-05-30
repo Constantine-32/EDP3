@@ -9,13 +9,12 @@ import java.util.Scanner;
 public class Main {
   // Objecte Scanner per obtenir la informacio de la consola.
   private static Scanner keyboard = new Scanner(System.in);
-  // Retorna una copia de l'string pasada per parametre que tant sols conte caracters [a-z] i espais.
+  // Retorna una copia de l'string pasada per parametre que tant sols conte caracters [a-z] espais i el caracter '$'.
   private static String normalizeString(final String string) {
     return Normalizer.normalize(string, Normalizer.Form.NFD).
-            replaceAll("[\\p{InCombiningDiacriticalMarks}]", "").
-            replaceAll("[,.'\"(){}!¡?¿[0-9]]", "").
+            toLowerCase().
             replaceAll("’", " ").
-            toLowerCase();
+            replaceAll("[^a-z $]", "");
   }
   // Main del programa.
   public static void main(String[] args) {
