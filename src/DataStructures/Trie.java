@@ -3,7 +3,7 @@ package DataStructures;
 import java.util.Iterator;
 import java.util.StringJoiner;
 
-public class Trie implements TADVocabulary {
+public class Trie implements ADTVocabulary {
   private Trie[] children;
   private int numChildren;
   private boolean isWord;
@@ -15,7 +15,7 @@ public class Trie implements TADVocabulary {
   }
 
   @Override
-  public boolean add(String word) {
+  public void add(String word) {
     int index = word.charAt(0) - 'a';
 
     Trie child = children[index];
@@ -27,17 +27,15 @@ public class Trie implements TADVocabulary {
     }
 
     if (word.length() == 1) {
-      if (child.isWord) {
-        return false;
-      }
       child.isWord = true;
-      return true;
-    } else return child.add(word.substring(1));
+    } else {
+      child.add(word.substring(1));
+    }
   }
 
   @Override
-  public boolean remove(String word) {
-    return false;
+  public void remove(String word) {
+
   }
 
   /**
@@ -62,7 +60,6 @@ public class Trie implements TADVocabulary {
     return aux != null && aux.isWord;
   }
 
-  @Override
   public boolean prefix(String prefix) {
     Trie aux = getNode(prefix);
     return aux != null;
