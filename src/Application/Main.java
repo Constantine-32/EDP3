@@ -18,11 +18,7 @@ public class Main {
   }
   // Main del programa.
   public static void main(String[] args) {
-    TADVocabulary vocabulary = new Trie();
-//    vocabulary.add("home");
-//    vocabulary.add("homeworkers");
-//    vocabulary.add("homework");
-//    vocabulary.add("mountain");
+    ADTVocabulary vocabulary = new Trie();
 
     String filePath = "Text1.txt";
 //    System.out.println("Indica el nom del fitxer:");
