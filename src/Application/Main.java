@@ -51,6 +51,9 @@ public class Main {
     System.out.println("Indica el nom del fitxer:");
     String filePath = keyboard.nextLine();
 
+    // Inici d'execucio.
+    long start = System.nanoTime();
+
     // Algorisme principal.
     try (BufferedReader file = new BufferedReader(new InputStreamReader(new FileInputStream(filePath), "Cp1252"))) {
       String line;
@@ -83,6 +86,7 @@ public class Main {
           numLinia++;
         }
       }
+
     } catch (FileNotFoundException e) {
       System.out.println("No s'ha trobat el fitxer indicat.");
     } catch (UnsupportedEncodingException e) {
@@ -91,10 +95,17 @@ public class Main {
       System.out.println(e.toString());
     }
 
+    // Fi d'execucio.
+    long end = System.nanoTime();
+    long elapsed = end - start;
+
     // Imprimeix el resultat per consola.
     Collections.sort(output);
     for (Node node : output) {
       System.out.println(node);
     }
+
+    // Indica el temps d'execucio.
+    System.out.println("Done! Temps d'execucio: "+elapsed / 1000000+" ms");
   }
 }
