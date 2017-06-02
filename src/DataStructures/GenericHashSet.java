@@ -3,7 +3,7 @@ package DataStructures;
 import java.util.Iterator;
 import java.util.StringJoiner;
 
-public class GenericHashSet<E> implements ADTGenericHashSet<E>, Cloneable {
+public class GenericHashSet<E> implements ADTGenericHashSet<E>, Cloneable, Iterable<E> {
   private Node<E>[] table;
   private int size;
   private int numEle;
